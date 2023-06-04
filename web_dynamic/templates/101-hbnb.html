@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?cache_id={{ cache_id }}">
+  <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?cache_id={{ cache_id }}">
+  <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css?cache_id={{ cache_id }}">
+  <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css?cache_id={{ cache_id }}">
+  <link type="text/css" rel="stylesheet" href="../static/styles/8-places.css?cache_id={{ cache_id }}">
+  <link rel="icon" href="../static/images/icon.png?cache_id={{ cache_id }}" />
+  <title>HBnB</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../static/scripts/101-hbnb.js?{{ cache_id }}"></script>
+  <style>
+    .reviews {
+      margin-top: 40px;
+    }
+
+    .reviews h2 {
+      font-size: 16px;
+      border-bottom: 1px solid #DDDDDD;
+    }
+
+    .reviews ul {
+      list-style: none;
+    }
+
+    .reviews h3 {
+      font-size: 14px;
+    }
+
+    .reviews p {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <div id="api_status" class="available"></div>`
+  </header>
+  <div class="container">
+    <section class="filters">
+      <div class="locations">
+        <h3>States</h3>
+        <h4>&nbsp;</h4>
+        <div class="popover">
+          <ul>
+            {% for state in states %}
+            <li>
+              <h2>{{ state[0].name }}:</h2>
+              <ul>
+                {% for city in state[1] %}
+                <li>
+                  <input type="checkbox" data-id="{{ city.id }}" data-name="{{ city.name }}" style="margin-left: 10px;">
+                  {{ city.name }}
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="amenities">
+        <h3>Amenities</h3>
+        <h4>&nbsp;</h4>
+        <div class="popover">
+          <ul>
+            {% for amenity in amenities %}
+            <li>
+              <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}" style="margin-left: 10px;">
+              {{ amenity.name }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <button type="button">Search</button>
+    </section>
+    <div class="placesh1"><h1>Places</h1></div>
+    <section class="places">
+      <!-- Removed Jinja section for displaying places -->
+      <h1>Places</h1>
+    </section>
+    <div class="reviews">
+      <h2>Reviews <span class="toggleReviews">show</span></h2>
+      <ul></ul>
+    </div>
+  </div>
+  <footer>
+    <p>Holberton School</p>
+  </footer>
+</body>
+</html>
+
